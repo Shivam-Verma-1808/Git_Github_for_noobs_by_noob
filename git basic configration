@@ -1,0 +1,66 @@
+git config command is used to configure git . Configuring git usually involve some very basic configuration like setting the user name,email,default text editor for git ,new line(core.autocrlf),proxy(if needed) ,etc . 
+
+There various levels at which you can apply the above configurations :
+  1.local (Default) : directory level
+  2.global          : OS user level
+  3.system          : Across Entire Machine
+  
+  priority order : local>global>system
+  
+To begin with ,if you are setting the git up on a new machine .You may want to do the configuration for global level . Or if you want to do the configuration for a specific directory you can go for local .
+
+git config Syntax :
+  git config --global [option(s)]
+  (if you are doing configuration for global level ,replace '--global' by '--local' or '--system' if you need to configure for local or system level respectively)
+ 
+some very basic configration includes :
+
+  1. User name
+  
+    git config --global user.name "Human"
+    
+            //Note: if you are configuring for '--local' level .You need to first initialize git (git init) at the desired directory (once only :-) .  
+
+  2. email
+  
+    git config --global user.email "human@ai.com"
+  
+  3. setting your favourite text editor for git
+  
+    git config --global core.editor "nano -w"
+    (for choosing 'nano' as text editor)
+    
+      or any other like (for me ,I like 'atom' so ):
+      
+        git config --global core.editor "atom --wait"
+        
+        //for other editors check out the references below.
+   
+   (if you are behind a proxy ) 
+                                4. 
+                                  git config --global http.proxy proxy-url 
+                                  (for http)
+                                  
+                                  git config --global https.proxy proxy-url
+                                  (for https)
+                                  
+                                  //you may want both
+                                  //replace 'proxy-url' with your actual proxy-url or proxy_ip:port_number
+
+
+To see your git configurations any time you can use :
+      git config --list
+or to get configuration help :
+      git config -h
+      
+      
+Hurray !
+You have configured some of the very basic git configurations .
+
+
+Reference(s) :
+  1.http://swcarpentry.github.io/git-novice/02-setup/index.html
+  2.https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config
+  
+  
+  Software Carpentry can be a good place look through the basics of git vcs : http://swcarpentry.github.io/git-novice/ 
